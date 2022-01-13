@@ -72,12 +72,20 @@ describe("Product Model", () => {
         });
     });
 
+    it('productsByCategory method should return all products under the provided category', async () => {
+        const result = await store.productsByCategory('1')
+        expect(result.length).toEqual(1);
+    });
+
     it('delete method should remove the product', async () => {
-        store.delete("1");
+        await store.delete("1");
         const result = await store.index()
 
         expect(result).toEqual([]);
     });
+
+
+
 
 
 });
