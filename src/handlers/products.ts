@@ -19,10 +19,10 @@ const index = async (_req: express.Request, res: express.Response) => {
 
 const show = async (req: express.Request, res: express.Response) => {
     try {
-        let id: string = req.params.id
+        let id: number = Number(req.params.id)
 
         if (id) {
-            const product = await store.show(id)
+            const product = await store.show(String(id))
             res.status(200).json(product)
             return;
         } else {
