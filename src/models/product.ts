@@ -79,7 +79,7 @@ export class ProductStore {
       return updatedProduct;
     } catch (err) {
       throw new Error(
-        `Could not add new product ${product.name}. Error: ${err}`
+        `Could not update product ${product.name}. Error: ${err}`
       );
     }
   }
