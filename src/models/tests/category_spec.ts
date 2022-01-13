@@ -25,7 +25,7 @@ describe("category Model", () => {
 
     it('index method should return a list of categories', async () => {
         const result = await store.index();
-        expect(result.length).toBeGreaterThan(1);
+        expect(result.length).toBeGreaterThan(0);
     });
 
     it('show method should return the correct category', async () => {
