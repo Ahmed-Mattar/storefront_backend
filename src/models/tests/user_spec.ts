@@ -34,7 +34,7 @@ describe("User Model", () => {
         });
 
         expect(result).toEqual(jasmine.objectContaining({
-            id: 1,
+            id: 2,
             first_name: 'ahmed',
             last_name: 'mattar',
         }))
@@ -59,10 +59,10 @@ describe("User Model", () => {
     })
 
     it('show method should return a user', async () => {
-        const result = await store.show('1')
+        const result = await store.show('2')
 
         expect(result).toEqual(jasmine.objectContaining({
-            id: 1,
+            id: 2,
             first_name: 'ahmed',
             last_name: 'mattar',
         }))
@@ -70,19 +70,19 @@ describe("User Model", () => {
 
     it('update method should return an updated user', async () => {
         const result = await store.update({
-            id: 1,
+            id: 2,
             first_name: 'ahmed',
             last_name: 'salah',
             password: 'newupdatedPass'
         })
         expect(result).toEqual(jasmine.objectContaining({
-            id: 1,
+            id: 2,
             last_name: 'salah',
         }))
     })
 
     it('delete method should remove the user', async () => {
-        store.delete("1");
+        store.delete("2");
         const result = await store.index()
 
         expect(result).toEqual([]);

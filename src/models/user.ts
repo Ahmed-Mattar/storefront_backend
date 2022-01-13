@@ -19,8 +19,6 @@ const saltRounds: number = Number(process.env.SALT_ROUNDS);
 
 export class UserStore {
 
-
-
   async create(user: BaseUser): Promise<User> {
     try {
       const connection = await Client.connect();
