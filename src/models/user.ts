@@ -120,23 +120,23 @@ export class UserStore {
     }
   }
 
-  async delete(id: string): Promise<User> {
-    try {
-      const sql = "DELETE FROM users WHERE id=($1)";
+  // async delete(id: string): Promise<User> {
+  //   try {
+  //     const sql = "DELETE FROM users WHERE id=($1)";
 
-      const connection = await Client.connect();
+  //     const connection = await Client.connect();
 
-      const result = await connection.query(sql, [id]);
+  //     const result = await connection.query(sql, [id]);
 
-      const deletedUser = result.rows[0];
+  //     const deletedUser = result.rows[0];
 
-      connection.release();
+  //     connection.release();
 
-      return deletedUser;
-    } catch (err) {
-      throw new Error(`Could not delete user ${id}. Error: ${err}`);
-    }
-  }
+  //     return deletedUser;
+  //   } catch (err) {
+  //     throw new Error(`Could not delete user ${id}. Error: ${err}`);
+  //   }
+  // }
 
 
 }
