@@ -1,10 +1,6 @@
-# API Requirements
-
-The company stakeholders want to create an online storefront to showcase their great product ideas. Users need to be able to browse an index of all products, see the specifics of a single product, and add products to an order that they can view in a cart page. You have been tasked with building the API that will support this application, and your coworker is building the frontend.
-
-These are the notes from a meeting with the frontend developer that describe what endpoints the API needs to supply, as well as data shapes the frontend and backend have agreed meet the requirements of the application.
-
 ## API Endpoints
+
+note: replace {localhost} with yours
 
 #### Products
 
@@ -15,14 +11,16 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Users
 
-- Index [token required]
-- Show [token required]
-- Create N[token required]
+- Index [token required] GET: {localhost}/users
+- Show [token required] GET: {localhost}/users/:id
+- Create POST: {localhost}/users with a body for example { "first_name":"first","last_name":"last","password":"password" }
+- Login POST: {localhost}/users/login with a body for example { "first_name":"first","last_name":"last","password":"password" }
 
 #### Orders
 
+- create order [token required] POST: {localhost}/users/:id/order
+- add products to order [token required] POST:{localhost}/users/:user_id/order/:order_id with a body for example {"quantity":11,"productId":'1'}
 - Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
 
 ## Data Shapes
 
@@ -47,3 +45,49 @@ These are the notes from a meeting with the frontend developer that describe wha
 - quantity of each product in the order
 - user_id
 - status of order (active or complete)
+-
+
+## Tables
+
+### User
+
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    password VARCHAR NOT NULL
+
+id | first_name | last_name | password |
+
+### categories
+
+    id SERIAL PRIMARY KEY,
+    category VARCHAR(64) NOT NULL
+
+id | category |
+
+### products
+
+     id SERIAL PRIMARY KEY,
+    name VARCHAR(64) NOT NULL,
+    price integer NOT NULL,
+    category_id integer REFERENCES categories (id) NOT NULL
+
+id | name | price | category_id REFERENCES categories(id) |
+
+### orders
+
+    id SERIAL PRIMARY KEY,
+    status VARCHAR(15),
+    user_id bigint REFERENCES users(id)
+    CONSTRAINT check_status check (status in ('active','complete'))
+
+id | status | user_id REFERENCES users(id)|
+
+### order_products
+
+    id SERIAL PRIMARY KEY,
+    quantity integer,
+    order_id bigint REFERENCES orders(id),
+    product_id bigint REFERENCES products(id)
+
+id | quantity | order_id REFERENCES orders(id) | product_id REFERENCES products(id) |

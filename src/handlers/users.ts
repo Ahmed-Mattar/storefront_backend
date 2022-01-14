@@ -244,7 +244,7 @@ const usersRoutes = (app: express.Application) => {
     app.get('/users/:id', verifyAuthJWT, show)
     app.post('/users/:id/order', verifyAuthJWT, creat_order)
     app.get('/users/:user_id/order', verifyAuthJWT, currentOrder_byUser)
-    app.post('/users/:user_id/order/:order_id/', verifyAuthJWT, addproduct_toOrder)
+    app.post('/users/:user_id/order/:order_id', verifyAuthJWT, addproduct_toOrder)
 
     //app.delete('/users/:id', verifyAuthJWT, destroy)
 
