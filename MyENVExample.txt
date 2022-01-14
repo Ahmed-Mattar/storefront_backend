@@ -1,0 +1,9 @@
+POSTGRES_HOST=127.0.0.1
+POSTGRES_DB=exampleDatabase
+POSTGRES_USER=exampleDatabaseUser
+POSTGRES_PASSWORD=exampleDatabaseUserPassword
+POSTGRES_DB_TEST=exampleDatabaseTEST
+ENV=use 'dev' or 'test'
+BCRYPT_PASSWORD=my-very-secret
+SALT_ROUNDS=10
+TOKEN_SECRET=my-token-secret
