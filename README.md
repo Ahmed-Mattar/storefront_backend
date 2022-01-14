@@ -17,9 +17,9 @@ Your application must make use of the following libraries:
 
 ## How to setup and get started
 
-1- check the MyENVExample to see how to put your environment variables
-2- node address and port is = 0.0.0.0:3000
-3- postgress port is the default and the host is on 127.0.0.1 but you can change it in the .env file
-4- run **npm install** to install all required packages
-5- run **npm start** to start the server
-6- run **npm run test** to run the tests
+1- check the MyENVExample to see how to put your environment variables <br />
+2- node address and port is = 0.0.0.0:3000<br />
+3- postgress port is the default and the host is on 127.0.0.1 but you can change it in the .env file<br />
+4- run **npm install** to install all required packages<br />
+5- run **npm start** to start the server<br />
+6- run **npm run test** to run the tests<br />
